@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "7a93a990-f098-40c9-bf31-e2e3959b62c5",
+		"name": "Microservice-Movie-Serie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27839154"
+	},
+	"item": [
+		{
+			"name": "Moviebygenre catalog-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/catalog/pelea",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"catalog",
+						"pelea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moviebygenre movie-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/movies/pelea",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movies",
+						"pelea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moviebygenre movie-service api-gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8765/movies/pelea",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"movies",
+						"pelea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moviebygenre catalog-service api-gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8765/catalog/pelea",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"catalog",
+						"pelea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save new movie api-gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"prueba\",\n    \"genre\": \"pelea\",\n    \"urlStream\": \"whast\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8765/movies/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"movies",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Message catalog-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"hello from catalog-service, cofing server\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/message",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Message movie-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"hello from movie-service, cofing server\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/message",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"message"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
